@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxkkbxs005u75"]
+[gd_scene load_steps=5 format=3 uid="uid://bxkkbxs005u75"]
 
 [ext_resource type="PackedScene" uid="uid://be7oijspm6eii" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dnk7dnnc7furc" path="res://camera_3d.gd" id="2_0xm2m"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
-material = SubResource("StandardMaterial3D_0xm2m")
-size = Vector2(10, 500)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
-size = Vector3(10, 100, 1)
+[ext_resource type="Script" uid="uid://ddvkbecfcdvkg" path="res://road_manager.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://b25pxpqtv178j" path="res://Road Assests/Models/OBJ format/road_tile.tscn" id="4_1bvp3"]
 
 [node name="Main" type="Node3D"]
 
@@ -28,8 +21,7 @@ transform = Transform3D(-0.999926, -0.00460448, -0.0112784, -0.00842607, 0.93004
 script = ExtResource("2_0xm2m")
 target_path = NodePath("../player")
 
-[node name="Road" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_0xm2m")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
-shape = SubResource("BoxShape3D_h2yge")
+[node name="RoadManager" type="Node3D" parent="."]
+script = ExtResource("3_h2yge")
+road_tile_scene = ExtResource("4_1bvp3")
+player_path = NodePath("../player")

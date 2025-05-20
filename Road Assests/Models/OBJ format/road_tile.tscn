@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b25pxpqtv178j"]
+
+[ext_resource type="ArrayMesh" uid="uid://ioa2bw53uymu" path="res://Road Assests/Models/OBJ format/road-straight.obj" id="1_fw656"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw656"]
+size = Vector3(1, 0.0236816, 1)
+
+[node name="RoadTile" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 0, 0, 0)
+mesh = ExtResource("1_fw656")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00622559, 0)
+shape = SubResource("BoxShape3D_fw656")
