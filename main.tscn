@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxkkbxs005u75"]
+[gd_scene load_steps=6 format=3 uid="uid://bxkkbxs005u75"]
 
 [ext_resource type="PackedScene" uid="uid://be7oijspm6eii" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dnk7dnnc7furc" path="res://camera_3d.gd" id="2_0xm2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
+material = SubResource("StandardMaterial3D_0xm2m")
+size = Vector2(10, 500)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(10, 100, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -8,3 +18,18 @@
 transform = Transform3D(1, 0, 0, 0, 0.795357, 0.606141, 0, -0.606141, 0.795357, 0, 7.27594, 9.11724)
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="TrackSpawner" type="Node3D" parent="."]
+
+[node name="ObstacleSpawner" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999926, -0.00460448, -0.0112784, -0.00842607, 0.930046, 0.367346, 0.00879796, 0.367414, -0.930016, 0, 2.96839, -3.34288)
+script = ExtResource("2_0xm2m")
+target_path = NodePath("../player")
+
+[node name="Road" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_0xm2m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Road"]
+shape = SubResource("BoxShape3D_h2yge")

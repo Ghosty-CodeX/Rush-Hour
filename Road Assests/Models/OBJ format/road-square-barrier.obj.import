@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmpks34bypv8o"
+path="res://.godot/imported/road-square-barrier.obj-d1209b754dadb9dccb2c8fa435bfeffe.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-square-barrier.obj-d1209b754dadb9dccb2c8fa435bfeffe.mesh"]
+
+source_file="res://Road Assests/Models/OBJ format/road-square-barrier.obj"
+dest_files=["res://.godot/imported/road-square-barrier.obj-d1209b754dadb9dccb2c8fa435bfeffe.mesh", "res://.godot/imported/road-square-barrier.obj-d1209b754dadb9dccb2c8fa435bfeffe.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
