@@ -7,11 +7,11 @@ var input_direction: float = 0.0
 
 func _physics_process(delta):
 	#constant movemant forward
-	velocity.z = -move_speed
+	velocity.z = move_speed
 	
 	#left and right input
 	input_direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	velocity.x = input_direction * strafe_speed
+	velocity.x = -input_direction * strafe_speed
 	
 	#apply movement
 	move_and_slide()
