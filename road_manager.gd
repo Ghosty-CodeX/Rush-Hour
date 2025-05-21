@@ -22,7 +22,7 @@ func _process(delta):
 	if player_z + (tiles_ahead * tile_length) > last_tile_z:
 		spawn_tile(last_tile_z + tile_length)
 	
-	#removes tiles that are too far begind
+	#removes tiles that are too far behind
 	if spawned_tiles.size() > max_tiles:
 		var old_tile = spawned_tiles.pop_front()
 		old_tile.queue_free()
