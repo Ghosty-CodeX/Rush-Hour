@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b25pxpqtv178j"]
+[gd_scene load_steps=5 format=3 uid="uid://b25pxpqtv178j"]
 
 [ext_resource type="ArrayMesh" uid="uid://ioa2bw53uymu" path="res://Road Assests/Models/OBJ format/road-straight.obj" id="1_fw656"]
+[ext_resource type="Script" uid="uid://i0jf86176y8t" path="res://Road Assests/Models/OBJ format/road_tile.gd" id="1_rt7h1"]
+[ext_resource type="PackedScene" uid="uid://cdmuggbmxb5pi" path="res://Obstacle.tscn" id="2_b8kvx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw656"]
 size = Vector3(1, 0.0236816, 1)
 
 [node name="RoadTile" type="Node3D"]
+script = ExtResource("1_rt7h1")
+obstacle_scene = ExtResource("2_b8kvx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 0, 0, 0)
@@ -17,3 +21,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.00622559, 0)
 shape = SubResource("BoxShape3D_fw656")
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="LaneLeft" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69774, 0, 0)
+
+[node name="LaneRight" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50307, -2.38419e-07, 0)

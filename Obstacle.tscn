@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdmuggbmxb5pi"]
+
+[ext_resource type="ArrayMesh" uid="uid://btff8hs80gt52" path="res://Models/OBJ format/hatchback-sports.obj" id="1_nfn2k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfn2k"]
+size = Vector3(1.39355, 1.1084, 2.88348)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nfn2k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0180664, 0.603885, -0.018219)
+shape = SubResource("BoxShape3D_nfn2k")

@@ -13,23 +13,36 @@ var last_tile_z: float = 0.0
 func _ready():
 	player = get_node(player_path)
 	
-	#spawn initial road tiles
+	# Spawn initial road tiles
 	for i in range(tiles_ahead):
 		spawn_tile(i * tile_length)
 
 func _process(delta):
-	var player_z = player.global_position.z
-	if player_z + (tiles_ahead * tile_length) > last_tile_z:
-		spawn_tile(last_tile_z + tile_length)
+	if player == null:
+		return
 	
-	#removes tiles that are too far behind
-	if spawned_tiles.size() > max_tiles:
+	var player_z = player.global_position.z
+	
+	# Spawn new tiles if needed
+	while player_z + (tiles_ahead * tile_length) > last_tile_z:
+		spawn_tile(last_tile_z + tile_length)
+
+	# Clean up old tiles
+	while spawned_tiles.size() > max_tiles:
 		var old_tile = spawned_tiles.pop_front()
-		old_tile.queue_free()
+		if is_instance_valid(old_tile):
+			old_tile.queue_free()
 
 func spawn_tile(z_position: float):
 	var tile = road_tile_scene.instantiate()
+
+	# Set tile's position in front of the last one
+	tile.position = Vector3(0, 0, z_position)
 	add_child(tile)
-	tile.global_position = Vector3(0, 0, z_position)
+	
 	spawned_tiles.append(tile)
 	last_tile_z = z_position
+	
+	# If the tile has an obstacle script, spawn it
+	if tile.has_method("spawn_obstacle"):
+		tile.spawn_obstacle()
