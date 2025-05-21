@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var move_speed: float = 15.0
-@export var strafe_speed: float = 5.0
+@export var strafe_speed: float = 6.0
 @export var road_width: float = 8.0
 
 var input_direction: float = 0.0
