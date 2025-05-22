@@ -43,6 +43,9 @@ func spawn_tile(z_position: float):
 	spawned_tiles.append(tile)
 	last_tile_z = z_position
 	
+	if tile.has_method("set_player"):
+		tile.set_player(player)
+	
 	# If the tile has an obstacle script, spawn it
 	if tile.has_method("spawn_obstacle"):
-		tile.spawn_obstacle()
+		tile.spawn_obstacle(player)
