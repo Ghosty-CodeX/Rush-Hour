@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var road_width: float = 8.0
 
 var input_direction: float = 0.0
+var crashed = false
 
 
 func _physics_process(_delta):

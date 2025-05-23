@@ -3,22 +3,16 @@
 [ext_resource type="ArrayMesh" uid="uid://btff8hs80gt52" path="res://Models/OBJ format/hatchback-sports.obj" id="1_nfn2k"]
 [ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_qaun2"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qaun2"]
-size = Vector3(1.41205, 1.19189, 2.94983)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfn2k"]
 size = Vector3(1.27441, 1.11328, 2.73334)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qaun2"]
+size = Vector3(1.41205, 1.19189, 2.94983)
 
 [node name="hatchBack" type="CharacterBody3D"]
 script = ExtResource("1_qaun2")
 swerve_distance = 4.0
 swerve_speed = 3.0
-
-[node name="CrashArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00967407, 0.631592, -0.00506592)
-shape = SubResource("BoxShape3D_qaun2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_nfn2k")
@@ -26,5 +20,11 @@ mesh = ExtResource("1_nfn2k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00781266, 0.652254, -0.0174257)
 shape = SubResource("BoxShape3D_nfn2k")
+
+[node name="CrashArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00967407, 0.631592, -0.00506592)
+shape = SubResource("BoxShape3D_qaun2")
 
 [connection signal="body_entered" from="CrashArea" to="." method="_on_crash_area_body_entered"]

@@ -19,6 +19,7 @@ func spawn_obstacle(player):
 		obstacle_left.position = lane_left.position
 		obstacle_left.player = player  
 		obstacle_left.can_swerve = not both_lanes
+		obstacle_left.player_crashed.connect(_on_player_crashed)
 		add_child(obstacle_left)
 
 	if should_spawn_right:
@@ -27,4 +28,9 @@ func spawn_obstacle(player):
 		obstacle_right.position = lane_right.position
 		obstacle_right.player = player
 		obstacle_right.can_swerve = not both_lanes
+		obstacle_right.player_crashed.connect(_on_player_crashed)
 		add_child(obstacle_right)
+
+func _on_player_crashed():
+	print("game over")
+	get_tree().paused = true

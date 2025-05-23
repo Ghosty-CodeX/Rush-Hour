@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dctbxmir6othp"]
+[gd_scene load_steps=5 format=3 uid="uid://dctbxmir6othp"]
 
 [ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_vny3j"]
 [ext_resource type="ArrayMesh" uid="uid://be7ldfle5gp80" path="res://Models/OBJ format/sedan.obj" id="2_u1t6f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vny3j"]
+size = Vector3(1.59479, 1.5318, 2.89075)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x27j7"]
 size = Vector3(1.54907, 1.39893, 2.69019)
@@ -9,9 +12,16 @@ size = Vector3(1.54907, 1.39893, 2.69019)
 [node name="car_sedan" type="CharacterBody3D"]
 script = ExtResource("1_vny3j")
 
+[node name="CrashArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0335999, 0.66684, 0.0195923)
+shape = SubResource("BoxShape3D_vny3j")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_u1t6f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00744629, 0.702881, -0.0596924)
+visible = false
 shape = SubResource("BoxShape3D_x27j7")

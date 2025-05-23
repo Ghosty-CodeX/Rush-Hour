@@ -1,9 +1,12 @@
 extends CharacterBody3D
 
+signal player_crashed
+
 @export var swerve_distance: float = 5.0  # How far to swerve
 @export var swerve_speed: float = 2.0     # How fast the car swerves
 @export var swerve_trigger_distance: float = 15.0  # Distance from player to trigger swerve
 @export var swerve_chance:= 0.3
+@onready var crash_area: Area3D = get_node("CrashArea")
 
 var player: Node3D              # Set by road_tile.gd when spawning
 var can_swerve: bool = true     # Set false if cars are side-by-side
@@ -35,6 +38,11 @@ func _ready():
 		swerve_direction = -1
 
 	target_position = global_position + Vector3(swerve_direction * swerve_distance, 0, 0)
+	if crash_area:
+		crash_area.body_entered.connect(_on_crash_area_body_entered)
+	else:
+		push_error("CrashArea not found in obstacle scene")
+		print("Crash Area not found")
 
 
 
@@ -55,3 +63,9 @@ func _physics_process(delta):
 
 	if has_swerved:
 		global_position.x = move_toward(global_position.x, target_position.x, swerve_speed * delta)
+
+
+func _on_crash_area_body_entered(body):
+	if body.name == "player":
+		print("Crash detected with player")
+		emit_signal("player_crashed")
