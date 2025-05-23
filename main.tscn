@@ -11,13 +11,14 @@
 transform = Transform3D(1, 0, 0, 0, 0.795357, 0.606141, 0, -0.606141, 0.795357, 0, 7.27594, 9.11724)
 
 [node name="player" parent="." instance=ExtResource("1_ig7tw")]
+road_width = 5.0
 
 [node name="TrackSpawner" type="Node3D" parent="."]
 
 [node name="ObstacleSpawner" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999926, -0.00460448, -0.0112784, -0.00842607, 0.930046, 0.367346, 0.00879796, 0.367414, -0.930016, 0, 2.96839, -3.34288)
+transform = Transform3D(-0.999926, -0.00460448, -0.0112784, -0.00842607, 0.930046, 0.367346, 0.00879796, 0.367414, -0.930016, 0, 2.96839, -5.15375)
 script = ExtResource("2_0xm2m")
 target_path = NodePath("../player")
 

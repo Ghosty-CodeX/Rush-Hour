@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://orfcm47bryk2"]
+
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_jqaxi"]
+[ext_resource type="ArrayMesh" uid="uid://dtk2jrdheud2s" path="res://Models/OBJ format/suv-luxury.obj" id="1_w1vst"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jqaxi"]
+size = Vector3(1.4494, 1.27832, 2.96376)
+
+[node name="Car_SUV" type="CharacterBody3D"]
+script = ExtResource("1_jqaxi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_w1vst")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0133972, 0.708111, 0.016716)
+shape = SubResource("BoxShape3D_jqaxi")

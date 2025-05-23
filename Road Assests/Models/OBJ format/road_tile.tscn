@@ -1,15 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b25pxpqtv178j"]
+[gd_scene load_steps=15 format=3 uid="uid://b25pxpqtv178j"]
 
 [ext_resource type="ArrayMesh" uid="uid://ioa2bw53uymu" path="res://Road Assests/Models/OBJ format/road-straight.obj" id="1_fw656"]
 [ext_resource type="Script" uid="uid://i0jf86176y8t" path="res://Road Assests/Models/OBJ format/road_tile.gd" id="1_rt7h1"]
 [ext_resource type="PackedScene" uid="uid://cdmuggbmxb5pi" path="res://Obstacle.tscn" id="2_b8kvx"]
+[ext_resource type="PackedScene" uid="uid://b2b47xuqeb4eg" path="res://car_pickup.tscn" id="2_vmaoj"]
+[ext_resource type="PackedScene" uid="uid://orfcm47bryk2" path="res://car_suv.tscn" id="3_11v5y"]
+[ext_resource type="PackedScene" uid="uid://dkb8pbq1ld176" path="res://car_taxi.tscn" id="4_jecb6"]
+[ext_resource type="PackedScene" uid="uid://cbwpm2uqiolr6" path="res://car_truck_flat.tscn" id="5_64d2k"]
+[ext_resource type="PackedScene" uid="uid://cqsnkwn45dl61" path="res://car_van.tscn" id="6_b03sx"]
+[ext_resource type="PackedScene" uid="uid://ds3p4gs6m0c6v" path="res://car_ambulance.tscn" id="8_64d2k"]
+[ext_resource type="PackedScene" uid="uid://bpmsp3n6q4b2j" path="res://car_delivery.tscn" id="9_b03sx"]
+[ext_resource type="PackedScene" uid="uid://bioob5u50lwwn" path="res://car_fire_truck.tscn" id="10_b03sx"]
+[ext_resource type="PackedScene" uid="uid://dctbxmir6othp" path="res://car_sedan.tscn" id="11_v0tv8"]
+[ext_resource type="PackedScene" uid="uid://b10bvihacs5ov" path="res://car_police.tscn" id="12_pksq1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fw656"]
 size = Vector3(1, 0.0236816, 1)
 
 [node name="RoadTile" type="Node3D"]
 script = ExtResource("1_rt7h1")
-obstacle_scene = ExtResource("2_b8kvx")
+obstacle_scene = Array[PackedScene]([ExtResource("2_vmaoj"), ExtResource("3_11v5y"), ExtResource("4_jecb6"), ExtResource("5_64d2k"), ExtResource("6_b03sx"), ExtResource("2_b8kvx"), ExtResource("8_64d2k"), ExtResource("9_b03sx"), ExtResource("10_b03sx"), ExtResource("11_v0tv8"), ExtResource("12_pksq1")])
+left_lane_spawn_chance = 45
+right_lane_spawn_chance = 45
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 0, 0, 0)

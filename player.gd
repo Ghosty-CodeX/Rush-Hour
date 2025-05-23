@@ -7,7 +7,7 @@ extends CharacterBody3D
 var input_direction: float = 0.0
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	#constant movemant forward
 	velocity.z = move_speed
 	

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b10bvihacs5ov"]
+
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_0s7hn"]
+[ext_resource type="ArrayMesh" uid="uid://imr3ob1pgy8h" path="res://Models/OBJ format/police.obj" id="2_3685h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kssdj"]
+size = Vector3(1.53192, 1.32739, 3.15918)
+
+[node name="car_police" type="CharacterBody3D"]
+script = ExtResource("1_0s7hn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_3685h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00192261, 0.687378, -0.0561523)
+shape = SubResource("BoxShape3D_kssdj")

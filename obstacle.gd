@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var swerve_distance: float = 3.0  # How far to swerve
+@export var swerve_distance: float = 5.0  # How far to swerve
 @export var swerve_speed: float = 2.0     # How fast the car swerves
 @export var swerve_trigger_distance: float = 15.0  # Distance from player to trigger swerve
 @export var swerve_chance:= 0.3

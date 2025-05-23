@@ -17,7 +17,7 @@ func _ready():
 	for i in range(tiles_ahead):
 		spawn_tile(i * tile_length)
 
-func _process(delta):
+func _process(_delta):
 	if player == null:
 		return
 	

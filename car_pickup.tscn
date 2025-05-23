@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2b47xuqeb4eg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dfhx2oye3tjxa" path="res://Models/OBJ format/truck.obj" id="1_s0vkw"]
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="2_e66f3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e66f3"]
+size = Vector3(1.48584, 1.30286, 3.15723)
+
+[node name="car_pickup" type="CharacterBody3D"]
+script = ExtResource("2_e66f3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_s0vkw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00366211, 0.709346, -0.0109863)
+shape = SubResource("BoxShape3D_e66f3")

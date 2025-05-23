@@ -8,6 +8,8 @@ size = Vector3(1.38452, 1.11328, 2.84839)
 
 [node name="hatchBack" type="CharacterBody3D"]
 script = ExtResource("1_qaun2")
+swerve_distance = 4.0
+swerve_speed = 3.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_nfn2k")

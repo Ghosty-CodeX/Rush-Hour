@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds3p4gs6m0c6v"]
+
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_iodea"]
+[ext_resource type="ArrayMesh" uid="uid://vgitw3ekqcey" path="res://Models/OBJ format/ambulance.obj" id="2_p7hvu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46bxd"]
+size = Vector3(1.58801, 1.69543, 3.44095)
+
+[node name="car_Ambulance" type="CharacterBody3D"]
+script = ExtResource("1_iodea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_p7hvu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176392, 1.04919, -0.0631256)
+shape = SubResource("BoxShape3D_46bxd")

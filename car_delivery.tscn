@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpmsp3n6q4b2j"]
+
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_k28cq"]
+[ext_resource type="ArrayMesh" uid="uid://53oh8jnm0gwh" path="res://Models/OBJ format/delivery.obj" id="2_ka5m0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvcdg"]
+size = Vector3(1.64627, 1.62354, 3.53076)
+
+[node name="car_delivery" type="CharacterBody3D"]
+script = ExtResource("1_k28cq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ka5m0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0270233, 0.864457, -0.123291)
+shape = SubResource("BoxShape3D_tvcdg")

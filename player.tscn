@@ -8,6 +8,7 @@ size = Vector3(1.29095, 1.04535, 2.61816)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_onrkg")
+road_width = 7.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_i3pqv")

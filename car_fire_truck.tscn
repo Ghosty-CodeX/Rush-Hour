@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bioob5u50lwwn"]
+
+[ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_w02ee"]
+[ext_resource type="ArrayMesh" uid="uid://buriwme7jw0lp" path="res://Models/OBJ format/firetruck.obj" id="2_ps6wk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lfwdr"]
+size = Vector3(1.63416, 1.80667, 3.58643)
+
+[node name="car_fireTruck" type="CharacterBody3D"]
+script = ExtResource("1_w02ee")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ps6wk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017395, 0.890732, -0.0285645)
+shape = SubResource("BoxShape3D_lfwdr")
