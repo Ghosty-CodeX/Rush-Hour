@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3tp7h01kqyue"]
+[gd_scene load_steps=11 format=3 uid="uid://d3tp7h01kqyue"]
 
-[ext_resource type="PackedScene" uid="uid://b25pxpqtv178j" path="res://Road Assests/Models/OBJ format/road_tile.tscn" id="1_irx3h"]
 [ext_resource type="ArrayMesh" uid="uid://0wsvstvk5vav" path="res://Building Assets/Models/OBJ format/low-detail-building-b.obj" id="2_oyb8c"]
 [ext_resource type="ArrayMesh" uid="uid://b764l5ithy5uj" path="res://Building Assets/Models/OBJ format/building-skyscraper-a.obj" id="3_1dqf4"]
+[ext_resource type="ArrayMesh" uid="uid://dmmoacqby6ktp" path="res://Building Assets/Models/OBJ format/building-skyscraper-d.obj" id="3_q7n0x"]
 [ext_resource type="ArrayMesh" uid="uid://cowj6ykjj8ive" path="res://Road Assests/Models/OBJ format/road-bend.obj" id="4_p4bc3"]
 [ext_resource type="ArrayMesh" uid="uid://ioa2bw53uymu" path="res://Road Assests/Models/OBJ format/road-straight.obj" id="5_q7n0x"]
+[ext_resource type="ArrayMesh" uid="uid://dst32km6isc2n" path="res://Building Assets/Models/OBJ format/building-skyscraper-e.obj" id="6_t3ylf"]
+[ext_resource type="ArrayMesh" uid="uid://cr0ebqnntmhfa" path="res://Building Assets/Models/OBJ format/low-detail-building-h.obj" id="7_e082u"]
+[ext_resource type="ArrayMesh" uid="uid://ckj0wgeskt2fv" path="res://Building Assets/Models/OBJ format/low-detail-building-wide-b.obj" id="8_uy6p2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odg7l"]
 albedo_color = Color(0, 0.437989, 0.119042, 1)
@@ -14,23 +17,25 @@ material = SubResource("StandardMaterial3D_odg7l")
 
 [node name="EnvironmentTwo" type="Node3D"]
 
-[node name="RoadTile" parent="." instance=ExtResource("1_irx3h")]
-
 [node name="Ground" type="MeshInstance3D" parent="."]
-transform = Transform3D(32, 0, 0, 0, 1, 0, 0, 0, 5.1, -0.298531, 0.0806918, -0.0215969)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 5.1, -0.298531, 0.0806918, -0.0215969)
 mesh = SubResource("PlaneMesh_t3ylf")
-skeleton = NodePath("../RoadTile")
+skeleton = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.58599, 0, -0.258194)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 6.58599, 0, -0.258194)
 
 [node name="Low-detail-building-b" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.510668, 2.38419e-07, 0.0753641)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.396881, 2.38419e-07, 0.0753641)
 mesh = ExtResource("2_oyb8c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.1734, 0, 1.47697)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.26559, 0, 1.86236)
 mesh = ExtResource("3_1dqf4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6139, 0, 1.71489)
+mesh = ExtResource("3_q7n0x")
 
 [node name="sideRoad" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 19.4739, 0, 0)
@@ -70,3 +75,18 @@ mesh = ExtResource("5_q7n0x")
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="sideRoad"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.98622, 0.0780163, -1.36981)
 mesh = ExtResource("4_p4bc3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -10.4176, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.10125, 0.133952, -1.67577)
+mesh = ExtResource("6_t3ylf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37003, 0, -0.404713)
+mesh = ExtResource("7_e082u")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.689899, 0.00197577, 0.843497)
+mesh = ExtResource("8_uy6p2")

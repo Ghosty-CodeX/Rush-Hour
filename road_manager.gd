@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var road_tile_scene: PackedScene
-@export var environment_tile_scene: PackedScene
+@export var environment_tile_scene: Array[PackedScene] = []
 @export var player_path: NodePath
 @export var game_over_ui_path: NodePath
 @export var tile_length: float = 10.0
@@ -50,7 +50,15 @@ func spawn_tile(z_position: float):
 		tile.spawn_obstacle(player)
 	
 	if environment_tile_scene:
-		var env_tile = environment_tile_scene.instantiate()
-		env_tile.position = Vector3(0, 0, z_position)
+		if environment_tile_scene.size() == 0:
+			return
+		
+		var scene = environment_tile_scene.pick_random()
+		var env_tile = scene.instantiate()
+		
+		env_tile.position.z = z_position
 		add_child(env_tile)
-		print("Environment tile spawned at z=", z_position)
+		#var env_tile = environment_tile_scene.instantiate()
+		#env_tile.position = Vector3(0, 0, z_position)
+		#add_child(env_tile)
+		#print("Environment tile spawned at z=", z_position)

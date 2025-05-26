@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxkkbxs005u75"]
+[gd_scene load_steps=14 format=3 uid="uid://bxkkbxs005u75"]
 
+[ext_resource type="Script" uid="uid://dprpv6bon3jt6" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://be7oijspm6eii" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dnk7dnnc7furc" path="res://camera_3d.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://ddvkbecfcdvkg" path="res://road_manager.gd" id="3_h2yge"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7tfeweh1dojr" path="res://EnvironmentTile.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dm7705ypdmymy" path="res://GameOverUI.tscn" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://d3pnqwjt744ts" path="res://_0003_AllSkyFree_Screen_06.jpg" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://d3tp7h01kqyue" path="res://environment_two.tscn" id="7_kek77"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5vw27"]
 panorama = ExtResource("7_272bh")
@@ -18,7 +20,11 @@ sky_material = SubResource("PanoramaSkyMaterial_5vw27")
 background_mode = 2
 sky = SubResource("Sky_kek77")
 
+[sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
+font_size = 30
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_5vw27")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.795357, 0.606141, 0, -0.606141, 0.795357, 0, 7.27594, 9.11724)
@@ -38,7 +44,7 @@ target_path = NodePath("../player")
 [node name="RoadManager" type="Node3D" parent="."]
 script = ExtResource("3_h2yge")
 road_tile_scene = ExtResource("4_1bvp3")
-environment_tile_scene = ExtResource("5_7mycd")
+environment_tile_scene = Array[PackedScene]([ExtResource("5_7mycd"), ExtResource("7_kek77")])
 player_path = NodePath("../player")
 game_over_ui_path = NodePath("../GameOverUI")
 
@@ -46,3 +52,17 @@ game_over_ui_path = NodePath("../GameOverUI")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5vw27")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.5
+offset_top = 51.0
+offset_right = 33.5
+offset_bottom = 74.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_5vw27")
+
+[node name="StartMenuUI" type="CanvasLayer" parent="."]

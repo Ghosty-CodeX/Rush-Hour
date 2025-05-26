@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var restart_button = $ColorRect/VBoxContainer/Restart
 
+
 func _ready():
 	restart_button.pressed.connect(_on_restart_pressed)
 	visible = false
