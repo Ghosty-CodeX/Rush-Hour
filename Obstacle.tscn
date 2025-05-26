@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="1_qaun2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qaun2"]
-size = Vector3(1.41205, 1.19189, 2.94983)
+size = Vector3(1.61559, 1.19189, 3.03839)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfn2k"]
 size = Vector3(1.27441, 1.11328, 2.73334)
@@ -17,7 +17,7 @@ swerve_speed = 3.0
 [node name="CrashArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00967407, 0.631592, -0.00506592)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.036217, 0.631592, -0.0493467)
 shape = SubResource("BoxShape3D_qaun2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3tp7h01kqyue"]
+
+[ext_resource type="PackedScene" uid="uid://b25pxpqtv178j" path="res://Road Assests/Models/OBJ format/road_tile.tscn" id="1_irx3h"]
+[ext_resource type="ArrayMesh" uid="uid://0wsvstvk5vav" path="res://Building Assets/Models/OBJ format/low-detail-building-b.obj" id="2_oyb8c"]
+[ext_resource type="ArrayMesh" uid="uid://b764l5ithy5uj" path="res://Building Assets/Models/OBJ format/building-skyscraper-a.obj" id="3_1dqf4"]
+[ext_resource type="ArrayMesh" uid="uid://cowj6ykjj8ive" path="res://Road Assests/Models/OBJ format/road-bend.obj" id="4_p4bc3"]
+[ext_resource type="ArrayMesh" uid="uid://ioa2bw53uymu" path="res://Road Assests/Models/OBJ format/road-straight.obj" id="5_q7n0x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odg7l"]
+albedo_color = Color(0, 0.437989, 0.119042, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t3ylf"]
+material = SubResource("StandardMaterial3D_odg7l")
+
+[node name="EnvironmentTwo" type="Node3D"]
+
+[node name="RoadTile" parent="." instance=ExtResource("1_irx3h")]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(32, 0, 0, 0, 1, 0, 0, 0, 5.1, -0.298531, 0.0806918, -0.0215969)
+mesh = SubResource("PlaneMesh_t3ylf")
+skeleton = NodePath("../RoadTile")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.58599, 0, -0.258194)
+
+[node name="Low-detail-building-b" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.510668, 2.38419e-07, 0.0753641)
+mesh = ExtResource("2_oyb8c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.1734, 0, 1.47697)
+mesh = ExtResource("3_1dqf4")
+
+[node name="sideRoad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 19.4739, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444031, 0.0780163, -1.36746)
+mesh = ExtResource("4_p4bc3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.0780163, 2.61008)
+mesh = ExtResource("4_p4bc3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.0780163, 0.622105)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00128937, 0.080595, -0.370068)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.993574, 0.0780163, -1.36816)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.0780163, 1.61869)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.993574, 0.0780163, 2.60658)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99085, 0.0780163, -1.36817)
+mesh = ExtResource("5_q7n0x")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="sideRoad"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.98622, 0.0780163, -1.36981)
+mesh = ExtResource("4_p4bc3")

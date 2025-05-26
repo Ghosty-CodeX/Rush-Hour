@@ -3,10 +3,11 @@ extends Node3D
 @export var obstacle_scene: Array[PackedScene] = []
 @onready var lane_left = $SpawnPoints/LaneLeft
 @onready var lane_right = $SpawnPoints/LaneRight
-@export var left_lane_spawn_chance:= 40
-@export var right_lane_spawn_chance:= 40
+@export var left_lane_spawn_chance := 40
+@export var right_lane_spawn_chance := 40
 
-# Called when the node enters the scene tree for the first time.
+var game_over_ui: Node = null
+
 func spawn_obstacle(player):
 	var should_spawn_left = randi() % 100 < left_lane_spawn_chance
 	var should_spawn_right = randi() % 100 < right_lane_spawn_chance
@@ -32,5 +33,8 @@ func spawn_obstacle(player):
 		add_child(obstacle_right)
 
 func _on_player_crashed():
-	print("game over")
-	get_tree().paused = true
+	if game_over_ui:
+		game_over_ui.show_game_over()
+		get_tree().paused = true
+	else:
+		print("⚠️ game_over_ui is null!")

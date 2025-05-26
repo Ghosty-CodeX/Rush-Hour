@@ -1,0 +1,64 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7tfeweh1dojr"]
+
+[ext_resource type="ArrayMesh" uid="uid://dp2wm5sx05yha" path="res://Building Assets/Models/OBJ format/building-a.obj" id="2_iku7j"]
+[ext_resource type="ArrayMesh" uid="uid://cnrd7gdqywg43" path="res://Building Assets/Models/OBJ format/building-b.obj" id="3_8ufk0"]
+[ext_resource type="ArrayMesh" uid="uid://lspe7xa5vcbe" path="res://Building Assets/Models/OBJ format/building-c.obj" id="5_1sx53"]
+[ext_resource type="ArrayMesh" uid="uid://6e38cudnh1fr" path="res://Building Assets/Models/OBJ format/building-d.obj" id="6_uk28x"]
+[ext_resource type="ArrayMesh" uid="uid://dl4u513jrio6v" path="res://Building Assets/Models/OBJ format/building-e.obj" id="7_27lbu"]
+[ext_resource type="ArrayMesh" uid="uid://bulrwsrxuspo1" path="res://Building Assets/Models/OBJ format/building-f.obj" id="8_5rg2l"]
+[ext_resource type="ArrayMesh" uid="uid://cpvrn1qicgaoi" path="res://Building Assets/Models/OBJ format/building-g.obj" id="9_dcveb"]
+[ext_resource type="ArrayMesh" uid="uid://bnvxva6wmq54f" path="res://Building Assets/Models/OBJ format/building-h.obj" id="9_y3ca1"]
+[ext_resource type="ArrayMesh" uid="uid://dd1il56etu7t" path="res://Building Assets/Models/OBJ format/building-i.obj" id="10_1sx53"]
+[ext_resource type="ArrayMesh" uid="uid://dqsmpuujro36e" path="res://Building Assets/Models/OBJ format/building-l.obj" id="11_uk28x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ufk0"]
+albedo_color = Color(0, 0.437989, 0.119042, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b753g"]
+material = SubResource("StandardMaterial3D_8ufk0")
+
+[node name="EnvironmentTile" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 5.1, -0.298531, 0.0806918, -0.0215969)
+mesh = SubResource("PlaneMesh_b753g")
+
+[node name="buildingsLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 6.26086, 0, 3.79215)
+mesh = ExtResource("2_iku7j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="buildingsLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22302, 0, 0)
+mesh = ExtResource("3_8ufk0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="buildingsLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.43331, 0, 0)
+mesh = ExtResource("5_1sx53")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="buildingsLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.62532, 0, -4.76837e-07)
+mesh = ExtResource("6_uk28x")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="buildingsLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.10864, 0.0231359, -1.43051e-06)
+mesh = ExtResource("7_27lbu")
+
+[node name="BuildingsRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -6.56833, 0, 4.11013)
+mesh = ExtResource("8_5rg2l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BuildingsRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18628, 0, 0)
+mesh = ExtResource("9_dcveb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="BuildingsRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37859, 0, -0.00133038)
+mesh = ExtResource("9_y3ca1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="BuildingsRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76376, 0, 0)
+mesh = ExtResource("10_1sx53")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="BuildingsRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32308, 0, 0)
+mesh = ExtResource("11_uk28x")

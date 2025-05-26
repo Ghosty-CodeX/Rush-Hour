@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dxomsppeoyh0d" path="res://obstacle.gd" id="2_e66f3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3uiu0"]
-size = Vector3(1.47058, 1.34515, 3.24048)
+size = Vector3(1.73386, 1.34515, 3.34827)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e66f3"]
 size = Vector3(1.48584, 1.30286, 3.15723)
@@ -15,7 +15,7 @@ script = ExtResource("2_e66f3")
 [node name="CrashArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.038147, 0.718605, -0.00256348)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0384787, 0.718605, -0.0564572)
 shape = SubResource("BoxShape3D_3uiu0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

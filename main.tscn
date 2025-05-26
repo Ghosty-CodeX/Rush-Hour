@@ -1,9 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxkkbxs005u75"]
+[gd_scene load_steps=11 format=3 uid="uid://bxkkbxs005u75"]
 
 [ext_resource type="PackedScene" uid="uid://be7oijspm6eii" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dnk7dnnc7furc" path="res://camera_3d.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://ddvkbecfcdvkg" path="res://road_manager.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://b25pxpqtv178j" path="res://Road Assests/Models/OBJ format/road_tile.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b7tfeweh1dojr" path="res://EnvironmentTile.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dm7705ypdmymy" path="res://GameOverUI.tscn" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://d3pnqwjt744ts" path="res://_0003_AllSkyFree_Screen_06.jpg" id="7_272bh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5vw27"]
+panorama = ExtResource("7_272bh")
+
+[sub_resource type="Sky" id="Sky_kek77"]
+sky_material = SubResource("PanoramaSkyMaterial_5vw27")
+
+[sub_resource type="Environment" id="Environment_5vw27"]
+background_mode = 2
+sky = SubResource("Sky_kek77")
 
 [node name="Main" type="Node3D"]
 
@@ -25,4 +38,11 @@ target_path = NodePath("../player")
 [node name="RoadManager" type="Node3D" parent="."]
 script = ExtResource("3_h2yge")
 road_tile_scene = ExtResource("4_1bvp3")
+environment_tile_scene = ExtResource("5_7mycd")
 player_path = NodePath("../player")
+game_over_ui_path = NodePath("../GameOverUI")
+
+[node name="GameOverUI" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5vw27")

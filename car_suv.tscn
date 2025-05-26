@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dtk2jrdheud2s" path="res://Models/OBJ format/suv-luxury.obj" id="1_w1vst"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4dga"]
-size = Vector3(1.52844, 1.45508, 3.14401)
+size = Vector3(1.64749, 1.45508, 3.24632)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jqaxi"]
 size = Vector3(1.4494, 1.27832, 2.96376)
@@ -15,7 +15,7 @@ script = ExtResource("1_jqaxi")
 [node name="CrashArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0267944, 0.626953, 0.0116425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0298313, 0.626953, -0.0395132)
 shape = SubResource("BoxShape3D_o4dga")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

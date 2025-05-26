@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cd7m3cju2agqr" path="res://Models/OBJ format/truck-flat.obj" id="1_crcat"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h4pxa"]
-size = Vector3(1.49963, 1.41791, 2.9126)
+size = Vector3(1.73184, 1.41791, 2.99732)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_40gx3"]
 size = Vector3(1.5238, 1.28333, 2.83734)
@@ -15,7 +15,7 @@ script = ExtResource("1_40gx3")
 [node name="CrashArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CrashArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0114136, 0.757721, -0.0666504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0277248, 0.757721, -0.109008)
 shape = SubResource("BoxShape3D_h4pxa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
