@@ -17,16 +17,12 @@ var swerve_direction := 0
 var start_position := Vector3.ZERO
 var target_position := Vector3.ZERO
 
-
-
 func _ready():
 	randomize()
 
-	if not can_swerve:
+	if not can_swerve or player == null:
 		return
-	if player == null:
-		return
-	
+
 	start_position = global_position
 
 	# Determine direction based on X position
@@ -38,12 +34,15 @@ func _ready():
 		swerve_direction = -1
 
 	target_position = global_position + Vector3(swerve_direction * swerve_distance, 0, 0)
+
 	if crash_area:
+		if crash_area.body_entered.is_connected(_on_crash_area_body_entered):
+			crash_area.body_entered.disconnect(_on_crash_area_body_entered)
+		
 		crash_area.body_entered.connect(_on_crash_area_body_entered)
+		print("Crash signal reconnected cleanly.")
 	else:
 		push_error("CrashArea not found in obstacle scene")
-		print("Crash Area not found")
-
 
 
 
@@ -64,8 +63,7 @@ func _physics_process(delta):
 	if has_swerved:
 		global_position.x = move_toward(global_position.x, target_position.x, swerve_speed * delta)
 
-
 func _on_crash_area_body_entered(body):
-	if body.name == "player":
+	if body.get_name() == "player":
 		print("Crash detected with player")
 		emit_signal("player_crashed")
