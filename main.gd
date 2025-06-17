@@ -12,7 +12,6 @@ var game_active := true
 func _ready():
 	start_z = player.global_position.z
 	current_Score = 0
-	get_tree().paused = true
 
 func _process(_delta):
 	if game_active:

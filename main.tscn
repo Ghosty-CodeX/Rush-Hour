@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bxkkbxs005u75"]
+[gd_scene load_steps=15 format=3 uid="uid://bxkkbxs005u75"]
 
 [ext_resource type="Script" uid="uid://dprpv6bon3jt6" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://be7oijspm6eii" path="res://player.tscn" id="1_ig7tw"]
@@ -7,24 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://b25pxpqtv178j" path="res://Road Assests/Models/OBJ format/road_tile.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b7tfeweh1dojr" path="res://EnvironmentTile.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dm7705ypdmymy" path="res://GameOverUI.tscn" id="5_lquwl"]
-[ext_resource type="Texture2D" uid="uid://d3pnqwjt744ts" path="res://_0003_AllSkyFree_Screen_06.jpg" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://d3tp7h01kqyue" path="res://environment_two.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://23ljb3nwuyyk" path="res://environment_three.tscn" id="8_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bdrun102qfy48" path="res://environment_four.tscn" id="9_dg77c"]
-[ext_resource type="Script" uid="uid://dtrpoxgf38sv5" path="res://start_menu_ui.gd" id="10_4c57u"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5vw27"]
-panorama = ExtResource("7_272bh")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4c57u"]
 
-[sub_resource type="Sky" id="Sky_kek77"]
-sky_material = SubResource("PanoramaSkyMaterial_5vw27")
+[sub_resource type="Sky" id="Sky_efxa6"]
+sky_material = SubResource("ProceduralSkyMaterial_4c57u")
 
 [sub_resource type="Environment" id="Environment_5vw27"]
 background_mode = 2
-sky = SubResource("Sky_kek77")
+sky = SubResource("Sky_efxa6")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
 font_size = 30
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_5vw27")
@@ -67,21 +66,3 @@ offset_bottom = 74.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 label_settings = SubResource("LabelSettings_5vw27")
-
-[node name="StartMenuUI" type="CanvasLayer" parent="."]
-process_mode = 2
-script = ExtResource("10_4c57u")
-
-[node name="PlayButton" type="Button" parent="StartMenuUI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.5
-offset_top = -24.0
-offset_right = 44.5
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play"

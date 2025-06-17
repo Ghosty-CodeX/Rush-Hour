@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rush Hour"
-run/main_scene="uid://bxkkbxs005u75"
+run/main_scene="uid://dxbuw7wng4ipj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
